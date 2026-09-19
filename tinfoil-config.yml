@@ -1,0 +1,21 @@
+cvm-version: 0.14.7
+cpus: 2
+memory: 8192
+
+containers:
+  - name: "app"
+    image: "ghcr.io/myxamediyar/garlic-cvm:placeholder"
+    secrets:
+      - API_KEY
+    restart: always
+    healthcheck:
+      test: ["CMD", "curl", "-sf", "http://127.0.0.1:8080/health"]
+      interval: 30s
+      timeout: 5s
+      start_period: 3m
+
+shim:
+  upstream-port: 8080
+  paths:
+    - /health
+    - /ask
