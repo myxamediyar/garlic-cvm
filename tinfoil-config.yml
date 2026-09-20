@@ -4,7 +4,7 @@ memory: 8192
 
 containers:
   - name: "app"
-    image: "ghcr.io/myxamediyar/garlic-cvm@sha256:2395dbbe4d8692d4bf77e8b739ed608018046bca7813566d58a43ee2887002e5"
+    image: "ghcr.io/myxamediyar/garlic-cvm@sha256:ca007ee163c78bcb5704097860e6b36982009c80ceca57a941ffaa7965f271b1"
     secrets:
       - API_KEY
     restart: always
