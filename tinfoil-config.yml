@@ -8,11 +8,15 @@ containers:
     secrets:
       - API_KEY
     restart: always
+    tmpfs:
+      /tmp: "size=512m"
+      /root/.cache: "size=256m"
     healthcheck:
       test: ["CMD", "curl", "-sf", "http://127.0.0.1:8080/health"]
-      interval: 30s
+      interval: 15s
       timeout: 5s
-      start_period: 3m
+      retries: 5
+      start_period: 10m
 
 shim:
   upstream-port: 8080
